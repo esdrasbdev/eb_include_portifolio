@@ -1,0 +1,147 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --color-ink-950: #050506;
+  --color-ink-900: #0a0a0c;
+  --color-ink-850: #101013;
+  --color-ink-800: #17171b;
+  --color-ink-700: #232328;
+  --color-ink-600: #3a3a42;
+  --color-ink-500: #58585f;
+  --color-ink-400: #85858c;
+  --color-ink-300: #adadb3;
+  --color-ink-200: #d3d3d7;
+  --color-ink-100: #e9e9eb;
+  --color-ink-50: #f6f6f7;
+  --color-paper: #fbfbfa;
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-spin-slow: spin 60s linear infinite;
+  --animate-spin-slower: spin 120s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+:root {
+  color-scheme: dark;
+  --bg: var(--color-ink-950);
+  --bg-elevated: var(--color-ink-900);
+  --fg: var(--color-ink-50);
+  --fg-muted: var(--color-ink-400);
+  --border: rgb(255 255 255 / 0.08);
+  --border-strong: rgb(255 255 255 / 0.14);
+  --glow: rgb(255 255 255 / 0.5);
+}
+
+:root.light {
+  color-scheme: light;
+  --bg: var(--color-paper);
+  --bg-elevated: #ffffff;
+  --fg: var(--color-ink-950);
+  --fg-muted: var(--color-ink-500);
+  --border: rgb(10 10 12 / 0.08);
+  --border-strong: rgb(10 10 12 / 0.14);
+  --glow: rgb(10 10 12 / 0.35);
+  
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--fg);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.mono-caption {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* LogoLoop — monocromático, coerente com a identidade visual */
+.tech-marquee .logoloop__node {
+  color: var(--fg-muted);
+  transition: color 0.3s ease;
+}
+.tech-marquee .logoloop__item:hover .logoloop__node {
+  color: var(--fg);
+}
+.tech-marquee .logoloop__node svg {
+  display: block;
+}
