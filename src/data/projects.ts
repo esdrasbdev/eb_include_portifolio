@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
       'Estrutura de minicursos',
       'Organização de dados administrativos',
     ],
-    stack: ['React', 'Node.js', 'PostgreSQL'],
+    stack: ['JavaScript', 'Node.js', 'Neon', 'Express', 'Vercel'],
     image: 'eagle_event.png',
   },
 ]
