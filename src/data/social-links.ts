@@ -1,7 +1,7 @@
 // Substitua pelos links reais quando disponíveis.
 export const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/_esdrasb/',
-  linkedin: 'www.linkedin.com/in/esdrasbdev',
+  linkedin: 'https://www.linkedin.com/in/esdrasbdev',
   github: 'https://github.com/esdrasbdev',
   email: 'esdrassouzabrito1@gmail.com',
 }
