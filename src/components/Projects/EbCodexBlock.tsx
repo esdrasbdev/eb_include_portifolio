@@ -11,8 +11,6 @@ const MARKS = [
   { icon: Rocket, label: 'Deploy' },
 ]
 
-const hasSiteLink = EBCODEX_SITE_URL !== 'https://www.ebcodex.com.br/'
-
 export function EbCodexBlock() {
   return (
     <motion.div
@@ -43,19 +41,12 @@ export function EbCodexBlock() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            {hasSiteLink ? (
-              <a href={EBCODEX_SITE_URL} target="_blank" rel="noopener noreferrer" data-cursor-hover>
-                <Button variant="secondary" size="sm">
-                  Conhecer EB CODEX
-                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                </Button>
-              </a>
-            ) : (
-              <Button variant="secondary" size="sm" disabled>
+            <a href={EBCODEX_SITE_URL} target="_blank" rel="noopener noreferrer" data-cursor-hover>
+              <Button variant="secondary" size="sm">
                 Conhecer EB CODEX
-                <ArrowRight size={14} />
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
               </Button>
-            )}
+            </a>
             <a
               href={EBCODEX_INSTAGRAM_URL}
               target="_blank"
